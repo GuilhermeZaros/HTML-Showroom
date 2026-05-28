@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitar Orçamento | Vera Molduras Presentes - Paranavaí PR</title>
+  <meta name="description" content="Solicite um orçamento personalizado de quadros, molduras, espelhos e enquadramento de objetos sob medida na Vera Molduras Presentes em Paranavaí.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+
+  <!-- 1. Faixa de Anúncios Superior -->
+  <div class="top-announcement">
+    MOLDURAS ARTESANAIS QUE VALORIZAM SUAS MEMÓRIAS | SHOWROOM EM PARANAVAÍ - PR
+  </div>
+
+  <!-- 2. Header Principal -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-top">
+
+        <a href="index.html" class="logo" id="logo-vera">
+          <span class="logo-main">Vera Molduras</span>
+          <span class="logo-sub">Presentes</span>
+        </a>
+
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="O que você está buscando para sua parede?" aria-label="Buscar produtos">
+          <button class="search-btn" aria-label="Pesquisar">
+            <i data-feather="search"></i>
+          </button>
+        </div>
+
+        <div class="header-actions">
+          <a href="https://api.whatsapp.com/send/?phone=554430454016&text=Ol%C3%A1%21+Vim+pela+bio+do+Instagram+e+queria+saber+mais+sobre+os+servi%C3%A7os&type=phone_number&app_absent=0" target="_blank" class="action-item">
+            <i data-feather="phone"></i>
+            <span>(44) 3045-4016</span>
+          </a>
+          <a href="index.html#contato" class="action-item">
+            <i data-feather="map-pin"></i>
+            <span>Showroom</span>
+          </a>
+          <a href="index.html#simulador" class="action-item cart-badge-container">
+            <i data-feather="shopping-bag"></i>
+            <span class="cart-badge">0</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <nav class="nav-bar">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="index.html#simulador" class="nav-link">Simular Moldura</a></li>
+          <li><a href="orcamento.html" class="nav-link active">Orçamento</a></li>
+          <li><a href="index.html#servicos" class="nav-link">Nossos Serviços</a></li>
+          <li><a href="index.html#depoimentos" class="nav-link">Feedbacks</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="index.html#sobre" class="nav-link">Sobre Nós</a></li>
+          <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Página de Orçamento -->
+  <section class="quote-section" id="orcamento">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag">Orçamento Sob Medida</span>
+        <h2 class="section-title text-serif">Monte o seu Quadro com Precisão</h2>
+      </div>
+
+      <div class="quote-container">
+
+        <aside class="quote-intro">
+          <h3>Solicite o seu orçamento personalizado em poucos passos</h3>
+          <p>Preencha as informações abaixo para que possamos preparar uma proposta detalhada considerando moldura, vidro, fundo e acabamento ideal para a sua peça.</p>
+
+          <ul class="quote-feature-list">
+            <li>
+              <i data-feather="check-circle"></i>
+              <span>Medidas exatas em centímetros para um corte perfeito.</span>
+            </li>
+            <li>
+              <i data-feather="check-circle"></i>
+              <span>Opções de vidro: incolor ou anti-reflexo (museum-grade).</span>
+            </li>
+            <li>
+              <i data-feather="check-circle"></i>
+              <span>Chapa de eucatex para reforço e proteção do verso.</span>
+            </li>
+            <li>
+              <i data-feather="check-circle"></i>
+              <span>Especialistas em telas, fotos, gravuras e objetos.</span>
+            </li>
+            <li>
+              <i data-feather="check-circle"></i>
+              <span>Resposta rápida via WhatsApp em até 1 hora útil.</span>
+            </li>
+          </ul>
+        </aside>
+
+        <form class="quote-form" id="quote-form" onsubmit="enviarOrcamento(event)">
+
+          <!-- Passo 1 — pergunta obrigatória -->
+          <div class="quote-step">
+            <span class="quote-step-label">Passo 1 — Obrigatório</span>
+            <h3 class="quote-step-title">O quadro que você quer é para qual tipo de peça?</h3>
+            <p class="quote-step-desc">Essa escolha define a profundidade da moldura e os acessórios necessários. Selecione uma opção para liberar o restante do formulário.</p>
+
+            <div class="quote-type-grid" id="quote-type-grid">
+
+              <button type="button" class="quote-type-card" data-tipo="tela" onclick="escolherTipo(this)">
+                <div class="quote-type-icon"><i data-feather="image"></i></div>
+                <span class="quote-type-title">Tela</span>
+                <span class="quote-type-desc">Pintura em tela esticada no chassi (acrílica, óleo, canvas impresso).</span>
+              </button>
+
+              <button type="button" class="quote-type-card" data-tipo="foto" onclick="escolherTipo(this)">
+                <div class="quote-type-icon"><i data-feather="camera"></i></div>
+                <span class="quote-type-title">Foto / Gravura</span>
+                <span class="quote-type-desc">Foto impressa, pôster, gravura, diploma, aquarela ou papel artesanal.</span>
+              </button>
+
+              <button type="button" class="quote-type-card" data-tipo="objeto" onclick="escolherTipo(this)">
+                <div class="quote-type-icon"><i data-feather="box"></i></div>
+                <span class="quote-type-title">Objeto Alto</span>
+                <span class="quote-type-desc">Camisa, medalha, terço, buquê ou peça com volume (moldura caixa).</span>
+              </button>
+
+              <button type="button" class="quote-type-card" data-tipo="espelho" onclick="escolherTipo(this)">
+                <div class="quote-type-icon"><i data-feather="maximize"></i></div>
+                <span class="quote-type-title">Espelho</span>
+                <span class="quote-type-desc">Espelho sob medida em corte reto, com ou sem moldura.</span>
+              </button>
+
+            </div>
+
+            <div class="quote-locked-notice" id="quote-locked-notice">
+              <i data-feather="lock"></i>
+              <span>Escolha o tipo de peça acima para liberar os campos de dimensões e acabamento.</span>
+            </div>
+          </div>
+
+          <!-- Passo 2 — destravado depois do passo 1 -->
+          <div class="quote-details" id="quote-details">
+
+            <div>
+              <span class="quote-step-label">Passo 2 — Detalhes da peça</span>
+              <h3 class="quote-step-title" id="quote-step2-title">Dimensões e acabamento</h3>
+              <p class="quote-step-desc" id="quote-step2-desc">Informe as medidas da arte em centímetros. Para objetos altos, inclua a altura do volume.</p>
+            </div>
+
+            <!-- Pergunta exclusiva para Espelho -->
+            <div class="quote-field quote-conditional" id="field-tem-espelho">
+              <label>Você já tem o espelho? <span class="req">*</span></label>
+              <div class="quote-pill-group" role="radiogroup" aria-label="Já tem o espelho?">
+                <button type="button" class="quote-pill active" data-tem-espelho="sim" onclick="escolherTemEspelho(this, true)">Sim, já tenho</button>
+                <button type="button" class="quote-pill" data-tem-espelho="nao" onclick="escolherTemEspelho(this, false)">Não, quero encomendar</button>
+              </div>
+              <small style="font-size:0.78rem;color:var(--text-muted);">Se já tem, basta medir; se não tem, informe o tamanho que deseja.</small>
+            </div>
+
+            <div class="quote-field-grid">
+              <div class="quote-field">
+                <label for="quote-largura" id="label-largura">Largura (cm) <span class="req">*</span></label>
+                <input type="number" id="quote-largura" name="largura" min="1" step="0.5" placeholder="Ex.: 50" required>
+              </div>
+              <div class="quote-field">
+                <label for="quote-comprimento" id="label-comprimento">Comprimento / Altura (cm) <span class="req">*</span></label>
+                <input type="number" id="quote-comprimento" name="comprimento" min="1" step="0.5" placeholder="Ex.: 70" required>
+              </div>
+
+              <div class="quote-field full quote-conditional" id="field-altura-objeto">
+                <label for="quote-altura-objeto">Altura do objeto (cm) <span class="req">*</span></label>
+                <input type="number" id="quote-altura-objeto" name="altura_objeto" min="0.1" step="0.1" placeholder="Quantos cm a peça tem de profundidade/altura">
+                <small style="font-size:0.78rem;color:var(--text-muted);">Ex.: camisa dobrada ≈ 3 cm | buquê ≈ 8 cm | troféu ≈ 15 cm.</small>
+              </div>
+            </div>
+
+            <div class="quote-field" id="field-vidro">
+              <label>Vai querer vidro? <span class="req">*</span></label>
+              <div class="quote-pill-group" role="radiogroup" aria-label="Quer vidro?">
+                <button type="button" class="quote-pill active" data-vidro="sim" onclick="escolherVidro(this, true)">Sim, com vidro</button>
+                <button type="button" class="quote-pill" data-vidro="nao" onclick="escolherVidro(this, false)">Sem vidro</button>
+              </div>
+            </div>
+
+            <div class="quote-field quote-conditional show" id="field-tipo-vidro">
+              <label>Tipo de vidro</label>
+              <div class="quote-pill-group" role="radiogroup" aria-label="Tipo de vidro">
+                <button type="button" class="quote-pill active" data-tipo-vidro="incolor" onclick="escolherTipoVidro(this)">Incolor</button>
+                <button type="button" class="quote-pill" data-tipo-vidro="antirreflexo" onclick="escolherTipoVidro(this)">Anti-reflexo</button>
+              </div>
+              <small style="font-size:0.78rem;color:var(--text-muted);">O vidro anti-reflexo é ideal para ambientes com muita luz natural ou artificial.</small>
+            </div>
+
+            <div class="quote-field" id="field-eucatex">
+              <label>Precisa de chapa de eucatex no fundo? <span class="req">*</span></label>
+              <div class="quote-pill-group" role="radiogroup" aria-label="Chapa de eucatex">
+                <button type="button" class="quote-pill active" data-eucatex="sim" onclick="escolherEucatex(this, true)">Sim, com eucatex</button>
+                <button type="button" class="quote-pill" data-eucatex="nao" onclick="escolherEucatex(this, false)">Sem eucatex</button>
+              </div>
+              <small style="font-size:0.78rem;color:var(--text-muted);">O eucatex reforça a estrutura traseira e protege a peça contra umidade.</small>
+            </div>
+
+            <!-- Pergunta exclusiva para Espelho: quer moldura? -->
+            <div class="quote-field quote-conditional" id="field-espelho-moldura">
+              <label>Vai querer o espelho com moldura? <span class="req">*</span></label>
+              <div class="quote-pill-group" role="radiogroup" aria-label="Espelho com moldura?">
+                <button type="button" class="quote-pill active" data-espelho-moldura="sim" onclick="escolherEspelhoMoldura(this, true)">Sim, com moldura</button>
+                <button type="button" class="quote-pill" data-espelho-moldura="nao" onclick="escolherEspelhoMoldura(this, false)">Espelho solto</button>
+              </div>
+              <small style="font-size:0.78rem;color:var(--text-muted);">Detalhes da moldura (cor, perfil) podem ser combinados no WhatsApp.</small>
+            </div>
+
+            <div class="quote-field-grid">
+              <div class="quote-field">
+                <label for="quote-nome">Seu nome <span class="req">*</span></label>
+                <input type="text" id="quote-nome" name="nome" placeholder="Como podemos te chamar?" required>
+              </div>
+              <div class="quote-field">
+                <label for="quote-telefone">WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="quote-telefone" name="telefone" placeholder="(44) 9 9999-9999" required>
+              </div>
+              <div class="quote-field full">
+                <label for="quote-observacoes">Observações adicionais (opcional)</label>
+                <textarea id="quote-observacoes" name="observacoes" placeholder="Cor da moldura preferida, prazo desejado, referências, etc."></textarea>
+              </div>
+            </div>
+
+            <div class="quote-submit-row">
+              <button type="submit" class="btn btn-accent" id="btn-enviar-orcamento">
+                <i data-feather="message-circle"></i> Enviar Orçamento via WhatsApp
+              </button>
+              <p class="quote-policy">Ao enviar, você abrirá uma conversa no WhatsApp com a Vera Molduras. Nenhum dado é armazenado neste site.</p>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://api.whatsapp.com/send/?phone=554430454016&text=Ol%C3%A1%21+Vim+pela+bio+do+Instagram+e+queria+saber+mais+sobre+os+servi%C3%A7os&type=phone_number&app_absent=0" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+    <i data-feather="message-circle" style="width: 32px; height: 32px;"></i>
+  </a>
+
+  <!-- Rodapé -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <a href="index.html" class="logo">
+            <span class="logo-main" style="color: var(--accent);">Vera Molduras</span>
+            <span class="logo-sub" style="color: var(--text-light);">Presentes</span>
+          </a>
+          <p class="footer-col-desc">
+            A melhor tradição e sofisticação em emolduramento artesanal, quadros sob medida e espelhos de alto padrão no Noroeste do Paraná.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Início</a></li>
+            <li><a href="index.html#simulador" class="footer-link">Simular Moldura</a></li>
+            <li><a href="orcamento.html" class="footer-link">Pedir Orçamento</a></li>
+            <li><a href="index.html#servicos" class="footer-link">Serviços</a></li>
+            <li><a href="index.html#depoimentos" class="footer-link">Feedbacks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Ajuda</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html#sobre" class="footer-link">Nossa História</a></li>
+            <li><a href="index.html#contato" class="footer-link">Showroom Físico</a></li>
+            <li><a href="faq.html" class="footer-link">Perguntas Frequentes</a></li>
+            <li><a href="https://api.whatsapp.com/send/?phone=554430454016" target="_blank" class="footer-link">Suporte WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Showroom Paranavaí</h4>
+          <ul class="footer-hours-list">
+            <li>Segunda a Sexta: <span>08:30 - 18:00</span></li>
+            <li>Sábado: <span>08:30 - 12:00</span></li>
+            <li>Domingos e Feriados: <span>Fechado</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Vera Molduras e Decorações. Todos os direitos reservados. CNPJ: 08.571.217/0001-38</p>
+        <p>Desenvolvido com elegância em Paranavaí - PR</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    feather.replace();
+
+    const estadoOrcamento = {
+      tipo: null,
+      vidro: true,
+      tipoVidro: 'incolor',
+      eucatex: true,
+      temEspelho: true,
+      espelhoMoldura: true,
+    };
+
+    const quoteDetails       = document.getElementById('quote-details');
+    const quoteLockedNotice  = document.getElementById('quote-locked-notice');
+    const fieldAlturaObjeto  = document.getElementById('field-altura-objeto');
+    const fieldTipoVidro     = document.getElementById('field-tipo-vidro');
+    const fieldVidro         = document.getElementById('field-vidro');
+    const fieldEucatex       = document.getElementById('field-eucatex');
+    const fieldTemEspelho    = document.getElementById('field-tem-espelho');
+    const fieldEspelhoMold   = document.getElementById('field-espelho-moldura');
+    const labelLargura       = document.getElementById('label-largura');
+    const labelComprimento   = document.getElementById('label-comprimento');
+    const step2Title         = document.getElementById('quote-step2-title');
+    const step2Desc          = document.getElementById('quote-step2-desc');
+
+    function atualizarLabelsEspelho() {
+      if (estadoOrcamento.temEspelho) {
+        labelLargura.innerHTML     = 'Largura do espelho (cm) <span class="req">*</span>';
+        labelComprimento.innerHTML = 'Altura do espelho (cm) <span class="req">*</span>';
+        step2Desc.textContent      = 'Meça o espelho que você já tem e informe as medidas em centímetros.';
+      } else {
+        labelLargura.innerHTML     = 'Largura desejada (cm) <span class="req">*</span>';
+        labelComprimento.innerHTML = 'Altura desejada (cm) <span class="req">*</span>';
+        step2Desc.textContent      = 'Informe o tamanho que você quer encomendar (em centímetros).';
+      }
+    }
+
+    function resetarLabelsPadrao() {
+      labelLargura.innerHTML     = 'Largura (cm) <span class="req">*</span>';
+      labelComprimento.innerHTML = 'Comprimento / Altura (cm) <span class="req">*</span>';
+      step2Title.textContent     = 'Dimensões e acabamento';
+      step2Desc.textContent      = 'Informe as medidas da arte em centímetros. Para objetos altos, inclua a altura do volume.';
+    }
+
+    function escolherTipo(card) {
+      const tipo = card.dataset.tipo;
+      estadoOrcamento.tipo = tipo;
+
+      document.querySelectorAll('.quote-type-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+
+      quoteDetails.classList.add('unlocked');
+      quoteLockedNotice.classList.add('hidden');
+
+      const inputAltura = document.getElementById('quote-altura-objeto');
+
+      // Reset de todas as condicionais antes de aplicar a nova lógica
+      fieldAlturaObjeto.classList.remove('show');
+      inputAltura.removeAttribute('required');
+      inputAltura.value = '';
+      fieldTemEspelho.classList.remove('show');
+      fieldEspelhoMold.classList.remove('show');
+      fieldVidro.classList.remove('quote-hidden');
+      fieldTipoVidro.classList.remove('quote-hidden');
+      fieldEucatex.classList.remove('quote-hidden');
+
+      if (tipo === 'objeto') {
+        fieldAlturaObjeto.classList.add('show');
+        inputAltura.setAttribute('required', 'required');
+        resetarLabelsPadrao();
+      } else if (tipo === 'espelho') {
+        // Esconde os campos que não se aplicam ao espelho
+        fieldVidro.classList.add('quote-hidden');
+        fieldTipoVidro.classList.add('quote-hidden');
+        fieldEucatex.classList.add('quote-hidden');
+
+        // Mostra perguntas específicas do espelho
+        fieldTemEspelho.classList.add('show');
+        fieldEspelhoMold.classList.add('show');
+
+        step2Title.textContent = 'Detalhes do espelho';
+        atualizarLabelsEspelho();
+      } else {
+        // tela ou foto/gravura
+        resetarLabelsPadrao();
+      }
+    }
+
+    function escolherVidro(btn, quer) {
+      estadoOrcamento.vidro = quer;
+      document.querySelectorAll('[data-vidro]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (quer) {
+        fieldTipoVidro.classList.add('show');
+      } else {
+        fieldTipoVidro.classList.remove('show');
+      }
+    }
+
+    function escolherTipoVidro(btn) {
+      estadoOrcamento.tipoVidro = btn.dataset.tipoVidro;
+      document.querySelectorAll('[data-tipo-vidro]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function escolherEucatex(btn, quer) {
+      estadoOrcamento.eucatex = quer;
+      document.querySelectorAll('[data-eucatex]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function escolherTemEspelho(btn, tem) {
+      estadoOrcamento.temEspelho = tem;
+      document.querySelectorAll('[data-tem-espelho]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      atualizarLabelsEspelho();
+    }
+
+    function escolherEspelhoMoldura(btn, quer) {
+      estadoOrcamento.espelhoMoldura = quer;
+      document.querySelectorAll('[data-espelho-moldura]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function enviarOrcamento(event) {
+      event.preventDefault();
+
+      if (!estadoOrcamento.tipo) {
+        alert('Por favor, selecione primeiro o tipo de peça (tela, foto/gravura, objeto alto ou espelho).');
+        return;
+      }
+
+      const nome         = document.getElementById('quote-nome').value.trim();
+      const telefone     = document.getElementById('quote-telefone').value.trim();
+      const largura      = document.getElementById('quote-largura').value;
+      const comprimento  = document.getElementById('quote-comprimento').value;
+      const alturaObjeto = document.getElementById('quote-altura-objeto').value;
+      const observacoes  = document.getElementById('quote-observacoes').value.trim();
+
+      const tipoLegivel = {
+        tela: 'Tela (pintura/canvas)',
+        foto: 'Foto / Gravura',
+        objeto: 'Objeto alto (moldura caixa)',
+        espelho: 'Espelho sob medida'
+      }[estadoOrcamento.tipo];
+
+      let msg = `Olá Vera Molduras! Gostaria de um orçamento personalizado:\n\n`;
+      msg += `• Nome: ${nome}\n`;
+      msg += `• WhatsApp: ${telefone}\n`;
+      msg += `• Tipo da peça: ${tipoLegivel}\n`;
+
+      if (estadoOrcamento.tipo === 'espelho') {
+        msg += `• Já tem o espelho? ${estadoOrcamento.temEspelho ? 'Sim — vou medir o que já tenho' : 'Não — quero encomendar'}\n`;
+        msg += `• ${estadoOrcamento.temEspelho ? 'Largura do espelho' : 'Largura desejada'}: ${largura} cm\n`;
+        msg += `• ${estadoOrcamento.temEspelho ? 'Altura do espelho' : 'Altura desejada'}: ${comprimento} cm\n`;
+        msg += `• Com moldura? ${estadoOrcamento.espelhoMoldura ? 'Sim, com moldura' : 'Não, espelho solto'}\n`;
+      } else {
+        msg += `• Largura: ${largura} cm\n`;
+        msg += `• Comprimento/Altura: ${comprimento} cm\n`;
+        if (estadoOrcamento.tipo === 'objeto' && alturaObjeto) {
+          msg += `• Altura do objeto: ${alturaObjeto} cm\n`;
+        }
+        msg += `• Vidro: ${estadoOrcamento.vidro ? 'Sim — ' + (estadoOrcamento.tipoVidro === 'antirreflexo' ? 'Anti-reflexo' : 'Incolor') : 'Não'}\n`;
+        msg += `• Chapa de eucatex: ${estadoOrcamento.eucatex ? 'Sim' : 'Não'}\n`;
+      }
+
+      if (observacoes) {
+        msg += `\nObservações:\n${observacoes}\n`;
+      }
+
+      msg += `\nFico no aguardo do orçamento. Obrigado(a)!`;
+
+      const url = `https://api.whatsapp.com/send/?phone=554430454016&text=${encodeURIComponent(msg)}&type=phone_number&app_absent=0`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
