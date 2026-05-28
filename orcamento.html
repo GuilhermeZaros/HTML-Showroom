@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solicitar Orçamento | Vera Molduras Presentes - Paranavaí PR</title>
-  <meta name="description" content="Solicite um orçamento personalizado de quadros, molduras, espelhos e enquadramento de objetos sob medida na Vera Molduras Presentes em Paranavaí.">
+  <meta name="description"
+    content="Solicite um orçamento personalizado de quadros, molduras, espelhos e enquadramento de objetos sob medida na Vera Molduras Presentes em Paranavaí.">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
+
 <body>
 
-  <!-- 1. Faixa de Anúncios Superior -->
+  <!-- Anúncios Superior -->
   <div class="top-announcement">
     MOLDURAS ARTESANAIS QUE VALORIZAM SUAS MEMÓRIAS | SHOWROOM EM PARANAVAÍ - PR
   </div>
 
-  <!-- 2. Header Principal -->
+  <!--  Header Principal -->
   <header class="main-header">
     <div class="container">
       <div class="header-top">
@@ -26,14 +29,16 @@
         </a>
 
         <div class="search-container">
-          <input type="text" class="search-input" placeholder="O que você está buscando para sua parede?" aria-label="Buscar produtos">
+          <input type="text" class="search-input" placeholder="O que você está buscando para sua parede?"
+            aria-label="Buscar produtos">
           <button class="search-btn" aria-label="Pesquisar">
             <i data-feather="search"></i>
           </button>
         </div>
 
         <div class="header-actions">
-          <a href="https://api.whatsapp.com/send/?phone=554430454016&text=Ol%C3%A1%21+Vim+pela+bio+do+Instagram+e+queria+saber+mais+sobre+os+servi%C3%A7os&type=phone_number&app_absent=0" target="_blank" class="action-item">
+          <a href="https://api.whatsapp.com/send/?phone=554430454016&text=Ol%C3%A1%21+Vim+pela+bio+do+Instagram+e+queria+saber+mais+sobre+os+servi%C3%A7os&type=phone_number&app_absent=0"
+            target="_blank" class="action-item">
             <i data-feather="phone"></i>
             <span>(44) 3045-4016</span>
           </a>
@@ -79,7 +84,8 @@
 
         <aside class="quote-intro">
           <h3>Solicite o seu orçamento personalizado em poucos passos</h3>
-          <p>Preencha as informações abaixo para que possamos preparar uma proposta detalhada considerando moldura, vidro, fundo e acabamento ideal para a sua peça.</p>
+          <p>Preencha as informações abaixo para que possamos preparar uma proposta detalhada considerando moldura,
+            vidro, fundo e acabamento ideal para a sua peça.</p>
 
           <ul class="quote-feature-list">
             <li>
@@ -107,24 +113,27 @@
 
         <form class="quote-form" id="quote-form" onsubmit="enviarOrcamento(event)">
 
-          <!-- Passo 1 — pergunta obrigatória -->
+          <!-- Pergunta obrigatória -->
           <div class="quote-step">
             <span class="quote-step-label">Passo 1 — Obrigatório</span>
             <h3 class="quote-step-title">O quadro que você quer é para qual tipo de peça?</h3>
-            <p class="quote-step-desc">Essa escolha define a profundidade da moldura e os acessórios necessários. Selecione uma opção para liberar o restante do formulário.</p>
+            <p class="quote-step-desc">Essa escolha define a profundidade da moldura e os acessórios necessários.
+              Selecione uma opção para liberar o restante do formulário.</p>
 
             <div class="quote-type-grid" id="quote-type-grid">
 
               <button type="button" class="quote-type-card" data-tipo="tela" onclick="escolherTipo(this)">
                 <div class="quote-type-icon"><i data-feather="image"></i></div>
                 <span class="quote-type-title">Tela</span>
-                <span class="quote-type-desc">Pintura em tela esticada no chassi (acrílica, óleo, canvas impresso).</span>
+                <span class="quote-type-desc">Pintura em tela esticada no chassi (acrílica, óleo, canvas
+                  impresso).</span>
               </button>
 
               <button type="button" class="quote-type-card" data-tipo="foto" onclick="escolherTipo(this)">
                 <div class="quote-type-icon"><i data-feather="camera"></i></div>
                 <span class="quote-type-title">Foto / Gravura</span>
-                <span class="quote-type-desc">Foto impressa, pôster, gravura, diploma, aquarela ou papel artesanal.</span>
+                <span class="quote-type-desc">Foto impressa, pôster, gravura, diploma, aquarela ou papel
+                  artesanal.</span>
               </button>
 
               <button type="button" class="quote-type-card" data-tipo="objeto" onclick="escolherTipo(this)">
@@ -147,76 +156,96 @@
             </div>
           </div>
 
-          <!-- Passo 2 — destravado depois do passo 1 -->
+          <!-- Detalhes da peça -->
           <div class="quote-details" id="quote-details">
 
             <div>
               <span class="quote-step-label">Passo 2 — Detalhes da peça</span>
               <h3 class="quote-step-title" id="quote-step2-title">Dimensões e acabamento</h3>
-              <p class="quote-step-desc" id="quote-step2-desc">Informe as medidas da arte em centímetros. Para objetos altos, inclua a altura do volume.</p>
+              <p class="quote-step-desc" id="quote-step2-desc">Informe as medidas da arte em centímetros. Para objetos
+                altos, inclua a altura do volume.</p>
             </div>
 
-            <!-- Pergunta exclusiva para Espelho -->
+            <!-- Pergunta Espelho -->
             <div class="quote-field quote-conditional" id="field-tem-espelho">
               <label>Você já tem o espelho? <span class="req">*</span></label>
               <div class="quote-pill-group" role="radiogroup" aria-label="Já tem o espelho?">
-                <button type="button" class="quote-pill active" data-tem-espelho="sim" onclick="escolherTemEspelho(this, true)">Sim, já tenho</button>
-                <button type="button" class="quote-pill" data-tem-espelho="nao" onclick="escolherTemEspelho(this, false)">Não, quero encomendar</button>
+                <button type="button" class="quote-pill active" data-tem-espelho="sim"
+                  onclick="escolherTemEspelho(this, true)">Sim, já tenho</button>
+                <button type="button" class="quote-pill" data-tem-espelho="nao"
+                  onclick="escolherTemEspelho(this, false)">Não, quero encomendar</button>
               </div>
-              <small style="font-size:0.78rem;color:var(--text-muted);">Se já tem, basta medir; se não tem, informe o tamanho que deseja.</small>
+              <small style="font-size:0.78rem;color:var(--text-muted);">Se já tem, basta medir; se não tem, informe o
+                tamanho que deseja.</small>
             </div>
 
             <div class="quote-field-grid">
               <div class="quote-field">
                 <label for="quote-largura" id="label-largura">Largura (cm) <span class="req">*</span></label>
-                <input type="number" id="quote-largura" name="largura" min="1" step="0.5" placeholder="Ex.: 50" required>
+                <input type="number" id="quote-largura" name="largura" min="1" step="0.5" placeholder="Ex.: 50"
+                  required>
               </div>
               <div class="quote-field">
-                <label for="quote-comprimento" id="label-comprimento">Comprimento / Altura (cm) <span class="req">*</span></label>
-                <input type="number" id="quote-comprimento" name="comprimento" min="1" step="0.5" placeholder="Ex.: 70" required>
+                <label for="quote-comprimento" id="label-comprimento">Comprimento / Altura (cm) <span
+                    class="req">*</span></label>
+                <input type="number" id="quote-comprimento" name="comprimento" min="1" step="0.5" placeholder="Ex.: 70"
+                  required>
               </div>
 
               <div class="quote-field full quote-conditional" id="field-altura-objeto">
                 <label for="quote-altura-objeto">Altura do objeto (cm) <span class="req">*</span></label>
-                <input type="number" id="quote-altura-objeto" name="altura_objeto" min="0.1" step="0.1" placeholder="Quantos cm a peça tem de profundidade/altura">
-                <small style="font-size:0.78rem;color:var(--text-muted);">Ex.: camisa dobrada ≈ 3 cm | buquê ≈ 8 cm | troféu ≈ 15 cm.</small>
+                <input type="number" id="quote-altura-objeto" name="altura_objeto" min="0.1" step="0.1"
+                  placeholder="Quantos cm a peça tem de profundidade/altura">
+                <small style="font-size:0.78rem;color:var(--text-muted);">Ex.: camisa dobrada ≈ 3 cm | buquê ≈ 8 cm |
+                  troféu ≈ 15 cm.</small>
               </div>
             </div>
 
             <div class="quote-field" id="field-vidro">
               <label>Vai querer vidro? <span class="req">*</span></label>
               <div class="quote-pill-group" role="radiogroup" aria-label="Quer vidro?">
-                <button type="button" class="quote-pill active" data-vidro="sim" onclick="escolherVidro(this, true)">Sim, com vidro</button>
-                <button type="button" class="quote-pill" data-vidro="nao" onclick="escolherVidro(this, false)">Sem vidro</button>
+                <button type="button" class="quote-pill active" data-vidro="sim"
+                  onclick="escolherVidro(this, true)">Sim, com vidro</button>
+                <button type="button" class="quote-pill" data-vidro="nao" onclick="escolherVidro(this, false)">Sem
+                  vidro</button>
               </div>
             </div>
 
             <div class="quote-field quote-conditional show" id="field-tipo-vidro">
               <label>Tipo de vidro</label>
               <div class="quote-pill-group" role="radiogroup" aria-label="Tipo de vidro">
-                <button type="button" class="quote-pill active" data-tipo-vidro="incolor" onclick="escolherTipoVidro(this)">Incolor</button>
-                <button type="button" class="quote-pill" data-tipo-vidro="antirreflexo" onclick="escolherTipoVidro(this)">Anti-reflexo</button>
+                <button type="button" class="quote-pill active" data-tipo-vidro="incolor"
+                  onclick="escolherTipoVidro(this)">Incolor</button>
+                <button type="button" class="quote-pill" data-tipo-vidro="antirreflexo"
+                  onclick="escolherTipoVidro(this)">Anti-reflexo</button>
               </div>
-              <small style="font-size:0.78rem;color:var(--text-muted);">O vidro anti-reflexo é ideal para ambientes com muita luz natural ou artificial.</small>
+              <small style="font-size:0.78rem;color:var(--text-muted);">O vidro anti-reflexo é ideal para ambientes com
+                muita luz natural ou artificial.</small>
             </div>
 
             <div class="quote-field" id="field-eucatex">
               <label>Precisa de chapa de eucatex no fundo? <span class="req">*</span></label>
               <div class="quote-pill-group" role="radiogroup" aria-label="Chapa de eucatex">
-                <button type="button" class="quote-pill active" data-eucatex="sim" onclick="escolherEucatex(this, true)">Sim, com eucatex</button>
-                <button type="button" class="quote-pill" data-eucatex="nao" onclick="escolherEucatex(this, false)">Sem eucatex</button>
+                <button type="button" class="quote-pill active" data-eucatex="sim"
+                  onclick="escolherEucatex(this, true)">Sim, com eucatex</button>
+                <button type="button" class="quote-pill" data-eucatex="nao" onclick="escolherEucatex(this, false)">Sem
+                  eucatex</button>
               </div>
-              <small style="font-size:0.78rem;color:var(--text-muted);">O eucatex reforça a estrutura traseira e protege a peça contra umidade.</small>
+              <small style="font-size:0.78rem;color:var(--text-muted);">O eucatex reforça a estrutura traseira e protege
+                a peça contra umidade.</small>
             </div>
 
             <!-- Pergunta exclusiva para Espelho: quer moldura? -->
             <div class="quote-field quote-conditional" id="field-espelho-moldura">
               <label>Vai querer o espelho com moldura? <span class="req">*</span></label>
               <div class="quote-pill-group" role="radiogroup" aria-label="Espelho com moldura?">
-                <button type="button" class="quote-pill active" data-espelho-moldura="sim" onclick="escolherEspelhoMoldura(this, true)">Sim, com moldura</button>
-                <button type="button" class="quote-pill" data-espelho-moldura="nao" onclick="escolherEspelhoMoldura(this, false)">Espelho solto</button>
+                <button type="button" class="quote-pill active" data-espelho-moldura="sim"
+                  onclick="escolherEspelhoMoldura(this, true)">Sim, com moldura</button>
+                <button type="button" class="quote-pill" data-espelho-moldura="nao"
+                  onclick="escolherEspelhoMoldura(this, false)">Espelho solto</button>
               </div>
-              <small style="font-size:0.78rem;color:var(--text-muted);">Detalhes da moldura (cor, perfil) podem ser combinados no WhatsApp.</small>
+              <small style="font-size:0.78rem;color:var(--text-muted);">Detalhes da moldura (cor, perfil) podem ser
+                combinados no WhatsApp.</small>
             </div>
 
             <div class="quote-field-grid">
@@ -230,7 +259,8 @@
               </div>
               <div class="quote-field full">
                 <label for="quote-observacoes">Observações adicionais (opcional)</label>
-                <textarea id="quote-observacoes" name="observacoes" placeholder="Cor da moldura preferida, prazo desejado, referências, etc."></textarea>
+                <textarea id="quote-observacoes" name="observacoes"
+                  placeholder="Cor da moldura preferida, prazo desejado, referências, etc."></textarea>
               </div>
             </div>
 
@@ -238,7 +268,8 @@
               <button type="submit" class="btn btn-accent" id="btn-enviar-orcamento">
                 <i data-feather="message-circle"></i> Enviar Orçamento via WhatsApp
               </button>
-              <p class="quote-policy">Ao enviar, você abrirá uma conversa no WhatsApp com a Vera Molduras. Nenhum dado é armazenado neste site.</p>
+              <p class="quote-policy">Ao enviar, você abrirá uma conversa no WhatsApp com a Vera Molduras. Nenhum dado é
+                armazenado neste site.</p>
             </div>
 
           </div>
@@ -251,7 +282,8 @@
   </section>
 
   <!-- Botão Flutuante do WhatsApp -->
-  <a href="https://api.whatsapp.com/send/?phone=554430454016&text=Ol%C3%A1%21+Vim+pela+bio+do+Instagram+e+queria+saber+mais+sobre+os+servi%C3%A7os&type=phone_number&app_absent=0" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+  <a href="https://api.whatsapp.com/send/?phone=554430454016&text=Ol%C3%A1%21+Vim+pela+bio+do+Instagram+e+queria+saber+mais+sobre+os+servi%C3%A7os&type=phone_number&app_absent=0"
+    target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
     <i data-feather="message-circle" style="width: 32px; height: 32px;"></i>
   </a>
 
@@ -266,7 +298,8 @@
             <span class="logo-sub" style="color: var(--text-light);">Presentes</span>
           </a>
           <p class="footer-col-desc">
-            A melhor tradição e sofisticação em emolduramento artesanal, quadros sob medida e espelhos de alto padrão no Noroeste do Paraná.
+            A melhor tradição e sofisticação em emolduramento artesanal, quadros sob medida e espelhos de alto padrão no
+            Noroeste do Paraná.
           </p>
         </div>
 
@@ -287,7 +320,8 @@
             <li><a href="index.html#sobre" class="footer-link">Nossa História</a></li>
             <li><a href="index.html#contato" class="footer-link">Showroom Físico</a></li>
             <li><a href="faq.html" class="footer-link">Perguntas Frequentes</a></li>
-            <li><a href="https://api.whatsapp.com/send/?phone=554430454016" target="_blank" class="footer-link">Suporte WhatsApp</a></li>
+            <li><a href="https://api.whatsapp.com/send/?phone=554430454016" target="_blank" class="footer-link">Suporte
+                WhatsApp</a></li>
           </ul>
         </div>
 
@@ -322,36 +356,36 @@
       espelhoMoldura: true,
     };
 
-    const quoteDetails       = document.getElementById('quote-details');
-    const quoteLockedNotice  = document.getElementById('quote-locked-notice');
-    const fieldAlturaObjeto  = document.getElementById('field-altura-objeto');
-    const fieldTipoVidro     = document.getElementById('field-tipo-vidro');
-    const fieldVidro         = document.getElementById('field-vidro');
-    const fieldEucatex       = document.getElementById('field-eucatex');
-    const fieldTemEspelho    = document.getElementById('field-tem-espelho');
-    const fieldEspelhoMold   = document.getElementById('field-espelho-moldura');
-    const labelLargura       = document.getElementById('label-largura');
-    const labelComprimento   = document.getElementById('label-comprimento');
-    const step2Title         = document.getElementById('quote-step2-title');
-    const step2Desc          = document.getElementById('quote-step2-desc');
+    const quoteDetails = document.getElementById('quote-details');
+    const quoteLockedNotice = document.getElementById('quote-locked-notice');
+    const fieldAlturaObjeto = document.getElementById('field-altura-objeto');
+    const fieldTipoVidro = document.getElementById('field-tipo-vidro');
+    const fieldVidro = document.getElementById('field-vidro');
+    const fieldEucatex = document.getElementById('field-eucatex');
+    const fieldTemEspelho = document.getElementById('field-tem-espelho');
+    const fieldEspelhoMold = document.getElementById('field-espelho-moldura');
+    const labelLargura = document.getElementById('label-largura');
+    const labelComprimento = document.getElementById('label-comprimento');
+    const step2Title = document.getElementById('quote-step2-title');
+    const step2Desc = document.getElementById('quote-step2-desc');
 
     function atualizarLabelsEspelho() {
       if (estadoOrcamento.temEspelho) {
-        labelLargura.innerHTML     = 'Largura do espelho (cm) <span class="req">*</span>';
+        labelLargura.innerHTML = 'Largura do espelho (cm) <span class="req">*</span>';
         labelComprimento.innerHTML = 'Altura do espelho (cm) <span class="req">*</span>';
-        step2Desc.textContent      = 'Meça o espelho que você já tem e informe as medidas em centímetros.';
+        step2Desc.textContent = 'Meça o espelho que você já tem e informe as medidas em centímetros.';
       } else {
-        labelLargura.innerHTML     = 'Largura desejada (cm) <span class="req">*</span>';
+        labelLargura.innerHTML = 'Largura desejada (cm) <span class="req">*</span>';
         labelComprimento.innerHTML = 'Altura desejada (cm) <span class="req">*</span>';
-        step2Desc.textContent      = 'Informe o tamanho que você quer encomendar (em centímetros).';
+        step2Desc.textContent = 'Informe o tamanho que você quer encomendar (em centímetros).';
       }
     }
 
     function resetarLabelsPadrao() {
-      labelLargura.innerHTML     = 'Largura (cm) <span class="req">*</span>';
+      labelLargura.innerHTML = 'Largura (cm) <span class="req">*</span>';
       labelComprimento.innerHTML = 'Comprimento / Altura (cm) <span class="req">*</span>';
-      step2Title.textContent     = 'Dimensões e acabamento';
-      step2Desc.textContent      = 'Informe as medidas da arte em centímetros. Para objetos altos, inclua a altura do volume.';
+      step2Title.textContent = 'Dimensões e acabamento';
+      step2Desc.textContent = 'Informe as medidas da arte em centímetros. Para objetos altos, inclua a altura do volume.';
     }
 
     function escolherTipo(card) {
@@ -443,12 +477,12 @@
         return;
       }
 
-      const nome         = document.getElementById('quote-nome').value.trim();
-      const telefone     = document.getElementById('quote-telefone').value.trim();
-      const largura      = document.getElementById('quote-largura').value;
-      const comprimento  = document.getElementById('quote-comprimento').value;
+      const nome = document.getElementById('quote-nome').value.trim();
+      const telefone = document.getElementById('quote-telefone').value.trim();
+      const largura = document.getElementById('quote-largura').value;
+      const comprimento = document.getElementById('quote-comprimento').value;
       const alturaObjeto = document.getElementById('quote-altura-objeto').value;
-      const observacoes  = document.getElementById('quote-observacoes').value.trim();
+      const observacoes = document.getElementById('quote-observacoes').value.trim();
 
       const tipoLegivel = {
         tela: 'Tela (pintura/canvas)',
@@ -488,4 +522,5 @@
     }
   </script>
 </body>
+
 </html>
