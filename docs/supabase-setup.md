@@ -112,9 +112,14 @@ WHERE email = 'SEU-EMAIL-AQUI@exemplo.com';
 
 ## 10. Próximos passos
 
-Fase 2 concluída. As próximas fases vão consumir esse banco:
+Fase 2 concluída. Fase 3 entregue: você já pode usar o painel admin.
 
-- **Fase 3 — Painel admin:** página `admin.html` com login, formulários pra editar produtos e estoque, upload de fotos.
-- **Fase 4 — Calculadora:** página de orçamento lê preços do banco e calcula o orçamento ao vivo conforme o cliente digita.
+### Como acessar o admin
 
-Me avise quando tiver tudo verde aqui — vamos pra próxima fase.
+1. Abra `admin.html` no navegador (mesmo método que você usa pro restante do site).
+2. Faça login com o email/senha que você cadastrou no passo 9.
+3. Use a sidebar pra navegar entre Molduras, Vidros, Chapas, Espelhos, Paspaturs, Chassis e Config.
+
+### Próxima fase
+
+**Fase 4 — Calculadora:** página de orçamento (`orcamento.html`) vai ler preços do banco e calcular o orçamento ao vivo conforme o cliente digita. Pré-requisitos: ter preços preenchidos no admin pra todos os tipos de vidro, paspatur e espelho que você oferece.
