@@ -1,0 +1,7 @@
+# Env vars
+.env
+.env.local
+
+# OS
+Thumbs.db
+.DS_Store
