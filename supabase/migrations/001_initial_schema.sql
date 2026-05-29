@@ -151,3 +151,49 @@ CREATE TABLE public.config_calculo (
 CREATE TRIGGER config_calculo_set_updated_at
   BEFORE UPDATE ON public.config_calculo
   FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+
+-- ---------------------------------------------------------------------------
+-- 4. Row Level Security
+-- ---------------------------------------------------------------------------
+
+ALTER TABLE public.molduras       ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.vidros         ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.chapas         ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.espelhos       ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.paspaturs      ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.chassis        ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.config_calculo ENABLE ROW LEVEL SECURITY;
+
+-- SELECT público (somente linhas ativas) para todas as tabelas de produto
+CREATE POLICY "select_publico_ativos" ON public.molduras       FOR SELECT USING (ativo = true);
+CREATE POLICY "select_publico_ativos" ON public.vidros         FOR SELECT USING (ativo = true);
+CREATE POLICY "select_publico_ativos" ON public.chapas         FOR SELECT USING (ativo = true);
+CREATE POLICY "select_publico_ativos" ON public.espelhos       FOR SELECT USING (ativo = true);
+CREATE POLICY "select_publico_ativos" ON public.paspaturs      FOR SELECT USING (ativo = true);
+CREATE POLICY "select_publico_ativos" ON public.chassis        FOR SELECT USING (ativo = true);
+
+-- config_calculo é totalmente pública (cliente precisa de todas as regras)
+CREATE POLICY "select_publico" ON public.config_calculo FOR SELECT USING (true);
+
+-- Escrita (INSERT/UPDATE/DELETE) restrita a admins autenticados
+CREATE POLICY "admin_all" ON public.molduras
+  FOR ALL TO authenticated
+  USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "admin_all" ON public.vidros
+  FOR ALL TO authenticated
+  USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "admin_all" ON public.chapas
+  FOR ALL TO authenticated
+  USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "admin_all" ON public.espelhos
+  FOR ALL TO authenticated
+  USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "admin_all" ON public.paspaturs
+  FOR ALL TO authenticated
+  USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "admin_all" ON public.chassis
+  FOR ALL TO authenticated
+  USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "admin_all" ON public.config_calculo
+  FOR ALL TO authenticated
+  USING (public.is_admin()) WITH CHECK (public.is_admin());
