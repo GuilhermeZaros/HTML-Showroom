@@ -72,17 +72,19 @@
       const corpo = document.createElement('p');
       corpo.textContent = mensagem;
       let resolved = false;
+      // Declarado antes do openModal pra ser referenciável no onSave
+      let obs;
       openModal({
         titulo: 'Confirmar',
         corpoEl: corpo,
         textoSalvar: 'Confirmar',
-        onSave: function () { resolved = true; resolve(true); closeModal(); }
+        onSave: function () { resolved = true; if (obs) obs.disconnect(); resolve(true); closeModal(); }
       });
       // Quando o modal fechar por cancel/X/ESC, resolve(false)
-      const obs = new MutationObserver(function () {
-        if (!document.querySelector('.modal-overlay') && !resolved) {
+      obs = new MutationObserver(function () {
+        if (!document.querySelector('.modal-overlay')) {
           obs.disconnect();
-          resolve(false);
+          if (!resolved) resolve(false);
         }
       });
       obs.observe(document.body, { childList: true });
