@@ -197,3 +197,31 @@ CREATE POLICY "admin_all" ON public.chassis
 CREATE POLICY "admin_all" ON public.config_calculo
   FOR ALL TO authenticated
   USING (public.is_admin()) WITH CHECK (public.is_admin());
+
+-- ---------------------------------------------------------------------------
+-- 5. Storage bucket
+-- ---------------------------------------------------------------------------
+
+-- Bucket público para fotos dos produtos
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('produtos', 'produtos', true)
+ON CONFLICT (id) DO NOTHING;
+
+-- SELECT público (qualquer um lê)
+CREATE POLICY "produtos_public_read" ON storage.objects
+  FOR SELECT TO public
+  USING (bucket_id = 'produtos');
+
+-- INSERT/UPDATE/DELETE só pra admin
+CREATE POLICY "produtos_admin_write" ON storage.objects
+  FOR INSERT TO authenticated
+  WITH CHECK (bucket_id = 'produtos' AND public.is_admin());
+
+CREATE POLICY "produtos_admin_update" ON storage.objects
+  FOR UPDATE TO authenticated
+  USING (bucket_id = 'produtos' AND public.is_admin())
+  WITH CHECK (bucket_id = 'produtos' AND public.is_admin());
+
+CREATE POLICY "produtos_admin_delete" ON storage.objects
+  FOR DELETE TO authenticated
+  USING (bucket_id = 'produtos' AND public.is_admin());
